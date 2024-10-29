@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: skyblue;
+        width: 1024px;
+    }
+    #src{
+        width: 250px;
+        height: 30px;
+        background-color: white;
+        margin-left: 35%;
+        margin-top: 30px;
+    }
+    #header {
+        height: 100px;
+        /* display:flow-root; */
+        background-color:antiquewhite;
+    }
+    #section1 {
+        background-color: rgb(97, 126, 221);
+        width: 600px;
+        height: 300px;
+        float: left;
+    }
+    #section2{
+        width: 300px;
+        float: left;
+        height: 300px;
+    }
+    #id{
+        width: 150px;
+    }
+    #password{
+        width: 130px;
+    }
+    #section3-1{
+        background-color: yellow;
+        border-color: black;
+        margin-left: 5%;
+        width: 280px;
+        height: 280px;
+        float: left;
+        border: 1px solid;
+    }
+    #section3-2{
+        background-color: yellow;
+        border-color: black;
+        margin-left: 5%;
+        width: 280px;
+        height: 280px;
+        float: left;
+        border: 1px solid;
+    }
+    #section3-3{
+        background-color: yellow;
+        border-color: black;
+        margin-left: 5%;
+        width: 280px;
+        height: 280px;
+        float: left;
+        border: 1px solid;
+    }
+    .media{
+        width: 100px; background-color: white; height: 200px;
+        margin-top: 10%;
+    }
+</style>
+<body>
+    <div id = "header">
+        <input type="text" class="search" id="src">
+        <button type="button" class="btn">검색</button>
+    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">연정 HomePage</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">HOME</a></li>
+                <li><a href="#section1">picture</a></li>
+                <li><a href="#section2">LOGIN</a></li>
+            </ul>
+
+        </div>
+    </nav>
+    <div>
+        <div id = "section1" class="section" style="margin-left: 5%; margin: right 5%;">
+            <img src="jpg/과제사진.jpg" style="width: 500px; border-radius: 20%;">
+        </div>
+        <div>
+            <div id = "section2" class="section" style="background-color: aliceblue; margin-left: 50px;">
+                <div style="padding: 5%;">
+                    <h1 style="margin-left: 20%;"> LOGIN </h1>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"> ID </i></span>
+                        <input id="id" type="id" class="form-control" name="id" placeholder="id를 입력하세요">
+                    </div>
+                    <div class="input-group" style="margin-top: 10px;">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"> PWD </i></span>
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <button type="button" class="btn btn-primary" style="margin-top: 20px; margin-left: 150px;">로그인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-bottom" style="margin-top: 350px;">
+        <div id = "section3-1" style="border-radius: 10%;">
+            <div style="margin: 5%;">
+                <h4 class="media-heading"> YounJung <br>
+                <small><i>Birth on March 8, 2000 in GUMI</i></small></h4>
+                <hr>
+                <img src="jpg/구미.jpg" style="width: 200px; border-radius: 20%;">
+            </div>
+        </div>
+        <div id = "section3-2" style="border-radius: 10%;">
+            <div style="margin: 5%;">
+                <h4 class="media-heading"> FOOD <br>
+                <small><i> Favorite food is Chicken & Beer</i></small></h4>
+            </div>
+        </div>
+        <div id = "section3-3" style="border-radius: 10%;">
+            <div style="margin: 5%;">
+                <h4 class="media-heading"> Hobby <br>
+                <small><i>Hobby is Tennis</i></small></h4>
+            </div>
+        </div>
+    </div>
+    <div id = "footer"></div>
+</body>
+</html>

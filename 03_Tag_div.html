@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 순서를 기억하자.. 선택하고 스타일 적용, body태그를 선택 */
+    /* 태그를 선택할때는 태그명(body)으로 , 아이디 선택할때는 #(#header)으로, 클래스는 .(.section)으로 */
+    body {
+        background-color: aqua;
+        width: 1024px;
+    }
+    #header {         background-color: blue;
+        width: 1024px;
+        height: 100px;
+        /* float: left; */
+    }
+    #nav {
+        background-color: chocolate;
+        width: 1024px;
+        height: 50px;
+        /* float: left; */
+    }
+    .section {
+        width: 400px;
+        height: 150px;
+        /* display:inline-flex; */
+        float: left;
+        background-color: crimson;
+    }
+</style>
+<body>
+    <!--div태그의 속성은 id.
+    id는 문서 내에서 unique해야한다는 특성이 있다. 동시에 똑같은 id를 만들 수 없다는 것을 의미(중복되면 안됨)--> 
+    <div id="header"></div>
+    <div id="nav">
+        [home] [자바공부하기] [게시판]
+    </div>
+    <div class="section"> type1 </div>
+    <div class="section"> type2 </div>
+</body>
+</html>
