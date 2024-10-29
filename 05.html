@@ -6,25 +6,85 @@
     <title>Document</title>
 </head>
 <style>
+    /* 1. body 1024(height) * 1028(width) / margin 0px
+    -> margin은 바깥쪽 공간 띄우기 / padding은 안쪽 공간 띄우기
+    2. 화면분할 -> div -> 시멘틱태크 ( header(제목), nav(메뉴), section(주요내용), aside(서브메뉴), footer(개발자정보) )
+                : 공간을 분할하고 공간의 의미를 나눔 / 구글검색의 엔진에 노출되는 것으로 검색빠르게해줌
+    3. display ( -->유사 : flex) 
+    -> block : 한줄차지 + 줄바꿈 /  가로-세로의 크기지정 가능
+    -> inline :  자동으로 영역지정 (줄바꿈 X) / 불편한점 : 가로-세로의 크기조정이 불가능
+    -> inline-block : 자동으로 영역지정 (줄바꿈 X) / 가로-세로의 크기지정 가능
+
+    (inline-block하면 빈공간이 생기고 / float : left 로 하면 빈공간이 없어짐)
+
+    왼쪽에 오는것 float : left / 오른쪽으로 붙여지는 것 display : inline-block의 패턴하면 깔끔함 */
     body {
         width: 1280px;
         height: 1024px;
-        background-color: burlywood;
+        background-color: rgb(243, 255, 198);
         border: 1px solid;
         margin: 0px;
     }
     header {
-        display: inline;
-        width: 800px;
-        height: 50px;
+        /* display: inline; */
+        /* display: block; */
+        /* display: inline-block; */
+        float: left;
+        padding-left: 20px;
+        width: 1280px;
+        height: 100px;
         background-color: white;
+    }
+    /* 아래와 같은 형태로 부모의 자식 id의 스타일을 따로 지정할 수 있음
+    또한 각 div의 boder : 1px solid로 하여 각 크기 및 위치의 틀을 잡을 수 있음*/
+    header div{
+        border: 1px solid;      /*크기와 위치를 잡기 위한 테두리 설정*/
+        width: 400px;
+        margin-left: 100px;
+        display: inline-block;
+        text-align: center;
+    }
+    nav {
+        /* display: inline; */
+        /* display: block; */
+        display: inline-block;
+        /* float: left; */
+        background-color: rgb(243, 146, 146);
+        width: 1280px;
+        height: 50px;
+    }
+    section {
+        /* display: inline; */
+        /* display: block; */
+        /* display: inline-block; */
+        float: left;
+        background-color: rgba(255, 255, 155, 0.932);
+        width: 1000px;
+        height: 100px;
+    }
+    aside {
+        /* display: inline-block; */
+        float: left;
+        width: 270px;
+        height: 100px;
+        background-color: rgb(205, 151, 255);
     }
 </style>
 <body>
     <header>
+        <div>        
+            <h2>박연정</h2>
+        </div>
+        <div><input type="text" style="width: 150px; height: 20px;"></div>
     </header>
     <nav>
-        
+        <span>홈으로 공부하기1</span>
     </nav>
+    <section>
+
+    </section>
+    <aside>
+
+    </aside>
 </body>
 </html>
