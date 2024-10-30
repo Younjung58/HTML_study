@@ -2,10 +2,37 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <!--UTF-8(한글 한글자당:2바이트) / EUC-KR(한글 한글자당:3바이트) 의 인코딩 방식이 존재
+    전세계적으로 UTF-8 많이 사용-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jua&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Wet+Paint&display=swap');
+    </style>
 </head>
-<style>
+<style>  /*CSS의 영역*/
+    .rubik-wet-paint-regular {
+    font-family: "Rubik Wet Paint", serif;
+    font-weight: 400;
+    font-style: normal;
+    /* font-size: x-large; */
+    }
+    .jua-regular {
+    font-family: "Jua", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+    }
+    .roboto-regular {
+    font-family: "Roboto", serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    .yeon-sung-regular {
+    font-family: "Yeon Sung", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    }
     body {
         width: 1280px;
         height: 1024px;
@@ -17,6 +44,8 @@
         width: 1280px;
         height: 100px;
         background-color: rgb(226, 192, 255);
+        padding-top: 20px;
+        box-sizing: border-box;     /*padding으로 인한 header의높이 변화를 막아줌*/
     }
     nav {
         width: 1280px;
@@ -28,13 +57,21 @@
         width: 70%;
         height: 400px;
         background-color: rgb(255, 193, 112);
-        display: inline-block;
+        /* display: inline-block; */
+        float: left;
+        padding-top: 10px;
+        padding-left: 10px;
+        box-sizing: border-box;
     }
     aside {
-        width: 29.5%;
+        padding: 40px;
+        padding-top: 10px;
+        width: 30%;
         height: 400px;
-        display: inline-block;
-        background-color: rgb(255, 146, 146);
+        /* display: inline-block; */
+        float: left;
+        background-color: rgb(255, 255, 255);
+        box-sizing: border-box;
     }
     #display {
         display: inline-block;
@@ -43,12 +80,73 @@
         background-color: rgb(161, 184, 226);
     }
     footer {
-        display: inline-block;
+        /* display: inline-block; */
+        float: left;
         width: 100%;
-        height: 280px;
+        height: 300px;
         border: 1px dotted;
         background-color: rgb(128, 170, 147);
         text-align: center;         /*글자 가운데 정렬*/
+    }
+    .header_01 {    /* 여기 기준으로 margin은 header와의 여백*/
+        width : 1000px;
+        height: 30px;
+        /* border: 1px solid; */
+        text-align: center;
+        margin: 0px auto;       /* 가운데 정렬의 의미*/
+    }
+    .header_01 h2 {      /* 글자의 배치가 깨졌다 !!! -> display 생각해보고 변화주기 !*/
+        display: inline;
+        color: rgb(255, 255, 255);
+    }
+    nav ul li {
+        display: inline-block;
+        width: 100px;
+        border: 1px solid;
+        margin-left: 5px;
+        text-align: center;
+    }
+    nav ul li:hover {       /*마우스 올라갔을 때의 색 변경의 액션 지정*/
+        background-color: rgb(130, 160, 116);
+    }
+    nav ul {
+        /* border: 1px solid; */
+        margin-top: 3px;
+    }
+    section div {
+        padding: 3%;
+    }
+    .display_01 {
+        padding-left: 10px;
+        margin-top: 25px;
+        width: 24%;
+        height: 150px;
+        margin-left: 10px;
+        float: left;
+        border: 1px solid;
+        box-sizing: border-box;
+    }
+    aside div {
+        display: inline-block;
+        width: 300px;
+        height: 150px;
+        margin: 0px auto;
+        background-color: rgba(255, 255, 255, 0.63);
+    }
+    table {
+        border: 4px solid;
+        width: 300px;
+        height: 150px;
+    }
+    tr,td,th {
+        border: 1px solid;
+        text-align: center;
+    }
+    th {
+        background-color: rgb(250, 248, 148);
+    }
+    th:hover {
+        background-color: rgb(221, 199, 72);
     }
 </style>
 <body>
@@ -60,11 +158,78 @@
 
     <!-- <div id = "header"></div>   <- 이러한 형태 대신, 아래와 같은 시멘틱태그 사용 -->
     <header>                    <!--시멘틱 태그-->
+        <div class = "header_01"> 
+            <h2 class="rubik-wet-paint-regular">"MERRY CHRISTMAS ~ !"</h2>
+        </div>
+        <div class = "header_01">       <!--form태그, action, method의 형식이 하나로 들어가야함-->
+            <!--처음에 공부할 때 부트스트랩보다는 인터넷에 html 000 type CSS의 형식으로 코드를 찾아서 공부하기-->
+            <form action="" method=""> 
+                <input type="text" size="40">
+                <input type="submit" value="search">
+            </form>
+        </div>
     </header>
-    <nav></nav>
-    <section>그림이 들어갈 공간</section>
-    <aside>로그인 등의 정보</aside>
-    <div id = "display"></div>
+    <nav  class="jua-regular">
+        <ul>       <!--목록태그임. ul의 자식(li)이 4개, 자손(span)이 4개   
+                    //  이런걸 DOM(Document Object Model)이라함-->
+            <li><sapn>홈으로</sapn></li>
+            <li><sapn>GO HOME</sapn></li>
+            <li><sapn>나홀로</sapn></li>
+            <li><sapn>집으로</sapn></li>
+        </ul>
+    </nav>
+    <section>
+        <div>
+            <img src="jpg/section_2.jpg" width="400px" height="250px" style="border-radius: 20%; border-style:ridge;">   <!--상대경로로 이미지 설정-->
+            <img src="jpg/section_크리스마스.gif" width="300px" height="250px">   <!--상대경로로 이미지 설정-->
+            <span style="display: inline-block; margin-top: 3%; margin-left: 100px; " class="jua-regular">'옥지얌 ~~~ 크리스마스얌 !!!'</span>
+            <span style="display: inline-block; margin-left: 200px;" class="jua-regular">'크리스마스? 그게 뭔데..'</span>
+            <!--개발자는 src에서 상대경로(현재 위치( . 으로 표시)에 따라서 결정)와 
+            절대경로(경로가 루트(시작점)부터 지정)를 숙지한다.
+                이미지 주소는 로컬에 있는 이미지나 웹에 있는 이미지 모두 가능-->
+        </div>
+    </section>
+    <aside>
+        <div>
+            <img src="jpg/aside_크리스마스.jpg" style="height: 100px; width: 300px; border-radius: 20%;">
+            <form action="" method="" class="jua-regular">          <!--input 객체들을 form태그 하나로 감싸야 관리 편리-->
+                <table>     <!--login table-->
+                    <tr><th colspan="2"> -LOG IN - </th></tr>
+                    <tr><td>ID</td><td><input type="text"></td></tr>
+                    <tr><td>PASSWORD</td><td><input type="password"></td></tr>
+                    <tr>
+                     <td colspan="2">
+                         <input type="button" value="가입">
+                         <input type="submit" value="로그인">
+                     </td>
+                    </tr> 
+                 </table>
+            </form>
+        </div>
+    </aside>
+    <div id = "display" class = "yeon-sung-regular">
+        <div class="display_01">
+            <h3>산타할아버지</h3>
+            <hr>
+            <p>울면 선물 안준다잇 !</p>
+        </div>
+        <div class="display_01">
+            <h3>루돌프</h3>
+            <hr>
+            <p>이번에 선물배송 조금만..</p>
+            <p>등골 휘어여어...</p>
+        </div>
+        <div class="display_01">
+            <h3>빵빵이</h3>
+            <hr>
+            <p>산타할아버지 선물주세효 !</p>
+        </div>
+        <div class="display_01">
+            <h3>옥지</h3>
+            <hr>
+            <p>빵빵이꺼 다내꺼임 !</p>
+        </div>
+    </div>
     <footer>개발자 정보 .. 박연정..</footer>
 </body>
 </html>

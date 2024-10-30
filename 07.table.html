@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        border: 1px solid;
+        width: 300px;
+        height: 150px;
+    }
+    tr,td,th {
+        border: 1px solid;
+        text-align: center;
+    }
+    th {
+        background-color: rgb(250, 248, 148);
+    }
+    th:hover {
+        background-color: rgb(221, 199, 72);
+    }
+</style>
+<body>
+    <!--table 태그
+        1. row  -> <tr>
+        2. column -> <td>
+        3. row를 합치는 것 -> rowspan
+        4. col을 합치는 것 -> colspan
+        5. 위 항목줄 -> <td>대신에 <th>
+    -->
+    <!-- <table>
+        <tr><th>번호</th><th>이름</th><th>점수</th><th>수정/삭제</th></tr>
+        <tr><td>aa</td><td>aa</td><td>aa</td><td>수정/삭제</td></tr>
+        <tr><td rowspan="2">행 Rowspan</td><td>aa</td><td>aa</td><td>수정/삭제</td></tr>
+        <tr><td>aa</td><td colspan="2">열 Colspan</td></tr>
+    </table> -->
+    <table>     <!--login table-->
+       <tr><th colspan="2"> -LOG IN - </th></tr>
+       <tr><td>ID</td><td><input type="text"></td></tr>
+       <tr><td>PASSWORD</td><td><input type="password"></td></tr>
+       <tr>
+        <td colspan="2">
+            <input type="button" value="가입">
+            <input type="submit" value="로그인">
+        </td>
+       </tr> 
+    </table>
+</body>
+</html>
