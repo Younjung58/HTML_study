@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        width: 1280px;
+        height: 1024px;
+        border: 1px solid;
+        margin: 0px     /*body 바깥쪽 document랑 사이*/
+    }
+    header {
+        display: inline-block;
+        width: 1280px;
+        height: 100px;
+        background-color: rgb(226, 192, 255);
+    }
+    nav {
+        width: 1280px;
+        height: 30px;
+        background-color: rgba(227, 255, 170, 0.753);
+        display: inline-block;
+    }
+    section {
+        width: 70%;
+        height: 400px;
+        background-color: rgb(255, 193, 112);
+        display: inline-block;
+    }
+    aside {
+        width: 29.5%;
+        height: 400px;
+        display: inline-block;
+        background-color: rgb(255, 146, 146);
+    }
+    #display {
+        display: inline-block;
+        width: 100%;
+        height: 200px;
+        background-color: rgb(161, 184, 226);
+    }
+    footer {
+        display: inline-block;
+        width: 100%;
+        height: 280px;
+        border: 1px dotted;
+        background-color: rgb(128, 170, 147);
+        text-align: center;         /*글자 가운데 정렬*/
+    }
+</style>
+<body>
+    <!-- div태그나 시멘틱태그를 사용하여 영역 나누기
+    오브젝트에는 display를 가지고 있음(inline-block이나 block등등...)
+    화면 경계 확인하고자 background-color를 설정
+    footer의 부모는 -> body의 부모는 -> document 순으로 부모가 되며
+    footer는 header, nav, section, aside, div와 형제관계이다. -->
+
+    <!-- <div id = "header"></div>   <- 이러한 형태 대신, 아래와 같은 시멘틱태그 사용 -->
+    <header>                    <!--시멘틱 태그-->
+    </header>
+    <nav></nav>
+    <section>그림이 들어갈 공간</section>
+    <aside>로그인 등의 정보</aside>
+    <div id = "display"></div>
+    <footer>개발자 정보 .. 박연정..</footer>
+</body>
+</html>
