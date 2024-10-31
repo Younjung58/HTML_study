@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission_계산기</title>
+</head>
+<style>
+    body {
+        width: 900px;
+        height: 500px;
+        /* margin: 10px     body 바깥쪽 document랑 사이 */
+        border: 1px solid;
+        padding: 10%;
+    }
+    #calculate , .e > input, .f  input   {
+        width: 195px;
+        height: 50px;
+        border: 1px solid;
+        margin-bottom: 10px;
+        border-style: outset;
+        font-size: large;
+    }
+    #calculate > #text {
+        overflow:scroll;
+        background-color: white;
+        position: relative;
+        z-index: 5;
+    }
+    .a , .b, .c, .d , .e {
+        display: block;
+    }
+    .a  input,
+    .d  input,
+    .e input {
+        display: inline-block;
+        /* float: left; */
+        width: 60px;
+        height: 60px;
+        border: 1px solid;
+        text-align: center;
+        /* margin: 0px auto; */
+        margin-top: 4px;
+        background-color: rgb(187, 204, 154);
+        border-style: outset;
+    }
+    .a  input .d:hover,  input:hover, .e input:hover{
+        background-color: rgb(109, 124, 77);
+    }
+    .d  input, .e  input {
+        background-color: gray;
+        border-style: outset;
+    }
+    .d > .qq:hover {
+        background-color: rgb(109, 124, 77);
+    }
+    .d  input:hover, .e  input:hover{
+        background-color: rgb(94, 92, 92);
+    }
+    .f  input {
+        background-color: rgb(25, 71, 131);
+        color: white;
+        border-style: outset;
+        /* margin-top: 0px; */
+    }
+    .f  input:hover {
+        background-color: rgb(26, 53, 88);
+    }
+</style>
+<body>
+    <div style="border:1px solid; width: 230px; padding-left: 30px; padding-top: 10px; background-color: beige;">
+        <div id = "calculate" style="background-color: white; word-break: break-all;">
+            <!-- <input type="text" style="width: 96%;height: 90%;" id="value"> -->
+            <span id = "text"></span>
+        </div>
+        <div class="a">
+            <form action="" method="">
+                <input type="button" onclick="num('1')" value="1" id="1">
+                <input type="button" onclick="num ('2')" value="2" id="2">
+                <input type="button" onclick="num ('3')" value="3" id="3">
+            </form>
+        </div>
+        <div class="a">
+            <form action="" method="">
+                <input type="button" onclick="num ('4')" value="4" id="4">
+                <input type="button" onclick="num ('5')" value="5" id="5">
+                <input type="button" onclick="num ('6')" value="6" id="6">
+            </form>
+        </div>
+        <div class="a">
+            <form action="" method="">
+                <input type="button" onclick="num ('7')" value="7" id="7">
+                <input type="button" onclick="num ('8')" value="8" id="8">
+                <input type="button" onclick="num ('9')" value="9" id="9">
+            </form>
+        </div>
+        <div class="d">
+            <form action="" method="">
+                <input type="button" onclick="calculating ('+')" value="+" id="+">
+                <input type="button" onclick="num ('0')" value="0" id="0" style="background-color: rgb(187, 204, 154);">
+                <input type="button" onclick="calculating ('-')" value="-" id="-">
+                <!-- <input type="button" onclick="calculating ('*')" value="*" id="*"> -->
+            </form>
+        </div>
+        <div class="e">
+            <input type="button" onclick="calculating ('*')" value="*" id="*">
+            <input type="button" onclick="calculating ('/')" value="/" id="/">
+            <input type="button" onclick="total ()" value="=" id="=" style="background-color: rgb(184, 102, 72);">
+        </div>
+        <div class="f">
+            <input type="button" onclick="reset ()" value="RESET" id="reset">
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var d ;
+    function calculating (a = getElementById){
+        var b = document.getElementById(a).value;
+        var c = document.getElementsByTagName('span')[0];
+        d = c.innerText;
+        c.innerText = "";
+        d += (b);
+        c.innerText = d;
+    }
+
+    function num (a = getElementById) {
+        var b = document.getElementById(a).value;  
+        // alert(b+"클릭됨");
+        var c = document.getElementsByTagName('span')[0];
+        d = c.innerText;
+        c.innerText = "";
+        d += Number(b);
+        c.innerText = d;
+    }
+
+    function total () {
+        var a = document.getElementsByTagName('span')[0];
+        a.innerText = eval(d);
+        d = 0;
+    }
+
+    function reset () {
+        var a = document.getElementsByTagName('span')[0];
+        a.innerText = "";
+    }
+</script>
