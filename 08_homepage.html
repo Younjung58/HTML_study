@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME PAGE</title>
-<style>
-   @import url('https://fonts.googleapis.com/css2?family=Jua&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Gemstones&family=Rubik+Wet+Paint&family=Yeon+Sung&display=swap');
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/20d076eb83.js" crossorigin="anonymous"></script>
 </head>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Gemstones&family=Rubik+Wet+Paint&family=Yeon+Sung&display=swap');
+    @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
     .fa-brands::before{
         font-family: 'Font Awesome 5 Brands';
         font-style: normal;
@@ -35,6 +36,12 @@
     font-weight: 400;
     font-style: normal;
     font-size: large;
+    }
+    #jua-regular{
+        font-family: "Jua", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: large;
     }
     .roboto-regular {
     font-family: "Roboto", serif;
@@ -154,41 +161,104 @@
         align-items: center;
         height: 55px;
     }
-    .navbar ul li .content {
-        position: relative;
+    .navbar ul li .content , .chris{
+        position: static;
     }
-    .navbar ul li .content {
-        display: block;
+    .navbar ul li .content , .chris{
+        display: inline-block;
         color: #ffffff;
         letter-spacing: 0.2rem;     /* 글자 사이 간격 조절 가능 */
         text-transform: uppercase;  /* 글자 대문자로 */
-        width: 180px;
+        width: 200px;
         height: 60px;
         text-align: center;
         padding: 20px;
     }
 
-    .wrap {
-        color: rgb(255, 255, 255);      /* 글자색 */
-    }
     .active {
         font-size: 20px;
         transition: all 0.5s ease-in-out;  /* 속도를 조정 -> 애니메이션과 같이 사용될 수 있음*/
     }
+    .dropbtn:hover  {
+        background-color: #f73939;
+        border-radius: 50%;
+        /* font-size: 30px; */
+    }
+    .dropbtn:hover > .text {        /* 동작으로 인해 다른 부분의 글자크기 바꾸고싶을때 이런형태로 사용*/
+        font-size: 20px;
+        /* width: 150px; */
+        width: auto;
+    }
+
 
     .navbar ul li .content :hover,
     .navbar ul li .content :active{
         background-color: #f73939;
-        font-size: 25px;
+        font-size: 20px;
         border-radius: 50%;
+        width: auto;
     }
-    /* #top_section div {
-        height: 230px;
-        width: 300px;
-        border: 1px solid;
-        display: inline-block;
-        margin-right: 20px;
-    } */
+
+    .dropbtn{
+        position : static;
+        display : inline-block;
+        /* float:left; */
+        /* display : block; */
+        border : 0px;
+        margin-top: 0px;
+        /* border-radius : 4px; */
+        background-color:  #3f864b;
+        font-weight: 400;
+        color : rgb(255, 255, 255);
+        /* padding : 12px; */
+        letter-spacing: 0.2rem;     /* 글자 사이 간격 조절 가능 */
+        /* text-transform: uppercase;  글자 대문자로 */
+        width: 200px;
+        text-align: center;
+        /* cursor : pointer; */
+        /* font-size : 12px; */
+        z-index :1;
+        /* position : relative; */
+    }
+    .dropdown-content{
+        display : none;
+        font-weight: 400;
+        background-color: #fcfcfc;
+        min-width : 240px;
+        border-radius: 8px;
+        height : 160px;
+        overflow : scroll;
+        box-shadow: 0px 0px 10px 3px rgba(190, 190, 190, 0.6);
+        position: relative;
+        z-index: 100;       /*배치를 맨앞으로 하려면 position-relative와 z인덱스 설정!!*/
+    }
+
+    .dropdown-content::-webkit-scrollbar{
+        width : 5px;
+        height : 10px;
+    }
+    .dropdown-content::-webkit-scrollbar-thumb{
+        border-radius : 2px;
+        background-color :rgb(194, 194, 194)
+    }
+
+    .dropdown-content div{
+        /* display : block; */
+        position: relative;
+        text-decoration : none;
+        color : rgb(37, 37, 37);
+        font-size: 12px;
+        padding : 12px 20px;
+        z-index: 100;
+    }
+    .dropdown-content div:hover{
+        background-color: rgb(226, 226, 226);
+    }
+
+    .dropdown-content.show{
+        display :flex;
+        /* z-index :3; */
+    }
 
     #top_section button{
         display: inline-block;
@@ -210,11 +280,13 @@
         margin: 0 auto;
         margin-left: 500px;
         margin-top: 80px;
+        /* z-index: -1; */
         /* text-align: center; */
     }
     .carousel {
         width: 100%;
         height: 100%;
+        z-index: -1;
         position: absolute;
         /* perspective가 적용된 자식 요소들에 3D 효과 원근감*/
         transform-style: preserve-3d; 
@@ -234,6 +306,7 @@
         align-items: center;
         justify-content: center;
         opacity: 0.9;
+        z-index: -1;
     }
     #top_section > #sub_section {
         /* display: inline-block; */
@@ -249,23 +322,18 @@
         display: inline-block;
         margin-top: 50px;
     }
-    #left_aside > div {
-        display: inline-block;
-        width: 100%;
-        height: 30px;
-        margin-top: 20px;
-        margin-left: 15px;
-        font-size: x-large;
-    }
-
     table {
         border: 4px solid;
         width: 150px;
         height: 150px;
         margin-left: 20px; 
+        border-radius: 5%;
+        border-style: groove;
     }
     tr,td,th {
-        border: 1px solid;
+        /* border: 1px solid; */
+        border-radius: 5%;
+        border-style: inherit;
         text-align: center;
     }
     th {
@@ -282,7 +350,50 @@
         margin-left: 10px;
         float: left;
         border: 1px solid;
+        border-style: outset;
+        border-radius: 15%;
         box-sizing: border-box;
+    }
+    #left_aside  div{
+        height: 100%;
+        /* display: inline-block; */
+        float: left;
+        overflow: auto;
+        box-sizing: border-box;
+    }
+    #left_aside ul {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+        width: 100px;
+        background: #FF6347;
+        height: 100%;
+        overflow: auto;
+        font-size: 20px;
+        /* position: fixed; */
+    }
+    #left_aside li a{
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+        color: #000;
+        font-weight: bold;
+    }
+    #left_aside li a:hover {
+        background-color: #333;
+        color: #fff;
+    }
+    #left_aside li a.cate {
+        background-color: #333;
+        color: #fff;
+    }
+    #left_aside .cd {
+        padding: 0px;
+        width: 100px;
+        margin-left: 10px;
+        /* background-color: #3f864b; */
+        font-size: 18px
+        /* display: inline-block; */
     }
 </style>
 <body>
@@ -306,13 +417,23 @@
                     </div>
                   </a>
                 </li>
-                <li>
-                  <a href="#" class="content">
-                    <div class="wrap">
-                      <span class="icon"><i class="fa-solid fa-gifts"></i></span>
-                      <span class="text">CHRISTMAS</span>
-                    </div>            
-                  </a>
+                <li id="chris">
+                  <a href="#" class="chris">
+                    <div>
+                        <button class="dropbtn" id="jua-regular">
+                            <span class="icon"><i class="fa-solid fa-gifts"></i></span>
+                            <span class="text">CHRISTMAS</span>
+                            <span class="dropbtn_click" style="font-family: Material Icons; font-size : 25px; color : #000000; float:right;"
+                              onclick="dropdown()">arrow_drop_down</span>
+                        </button>
+                        <div class="dropdown-content">
+                            <div class="christmas" onclick="showMenu(this.innerText)">케이크 추천코너로<br>!</div>
+                            <div class="christmas" onclick="showMenu(this.innerText)">여행지 추천코너로<br>!</div>
+                            <div class="christmas" onclick="showMenu(this.innerText)">올해의 축제코너로<br>!</div>
+                            <div class="christmas" onclick="showMenu(this.innerText)">캐롤 들으러<br>!</div>
+                        </div>
+                    </div>
+                  </a>            
                 </li>
                 <li>
                   <a href="#" class="content">
@@ -346,7 +467,7 @@
             <span style="font-size: xx-large;" id="rubik-gemstones-regular">" CHRISTMAS !!! "</span><br><br><br>
             <span>CHRISTMAS에 대해서<br> 얼마나 아시나요??</span>
         </div>
-        <div class="scene" style="margin-top: 100px;">
+        <div class="scene" style="margin-top: 100px; margin-left: 550px">
             <div class="carousel">
               <div class="carousel-card">
                 <img src="jpg/section_card1.png">
@@ -372,10 +493,19 @@
         <button class="next-btn"  id="yeon-sung-regular">다음</button>
     </section>
     <aside id="left_aside" class="yeon-sung-regular">
-        <div><a href="#1번">1. 크리스마스 ?</a></div>
-        <div><a href="#2번">2. 케이크 추천 !</a></div>
-        <div><a href="#3번">3. 여행지 추천 !</a></div>
-        <div><a href="#4번">4. 올해 축제는 ?</a></div>
+        <div>
+            <ul>
+                <li><a class="cate" href="#">카테고리</a></li>
+                <li><a href="#">새소식</a></li>
+                <li><a href="#">상품보기</a></li>
+                <li><a href="#">글쓰기</a></li>
+            </ul>
+        </div>
+        <div class="cd">
+            <h5><a href="#1번">1. 크리스마스 ?</a></h5>
+            <h5><a href="#2번">2. 케이크 추천 !</a></h5>
+            <h5><a href="#3번">3. 여행지 추천 !</a></h5>
+            <h5><a href="#4번">4. 올해 축제는 ?</a></h5>
         </div>
     </aside>
     <section id="bottom_section">
@@ -410,7 +540,7 @@
             </form>
         </div>
         <div style="margin-top: 20px;margin-left: 40px;">
-            <iframe width="200" height="150" src="https://www.youtube.com/embed/E8gmARGvPlI?si=etHlxwWo8pPVSb5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="250" height="150" src="https://www.youtube-nocookie.com/embed/8r3iXanFcNk?si=EBD96isf8pEJYEq_&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div style="margin-top: 20px;margin-left: 40px; margin-right: 40px;" class="yeon-sung-regular">
             -> 위 동영상을 클릭하면 올해 추천 캐롤을 들으실 수 있습니다 ~!
@@ -419,25 +549,24 @@
     
     <footer>
         <div class="display_01">
-            <i class="fa-solid fa-gifts"></i>
             <h3>
-                나는야 산타할아버지</h3>
+                나는야 산타할아버지 <i class="fa-solid fa-gifts"></i></h3>
             <hr>
             <p>울면 선물 안준다잇 !</p>
         </div>
         <div class="display_01">
-            <h3>루돌프</h3>
+            <h3>나는야 루돌프 <i class="fa-solid fa-sleigh"></i></h3>
             <hr>
             <p>이번에 선물배송 조금만..
             <br>등골 휘어여어...</p>
         </div>
         <div class="display_01">
-            <h3>개발자 : 연정</h3>
+            <h3>개발자 : 연정 <i class="fa-solid fa-ghost"></i></h3>
             <hr>
             <p>우리 모두 즐거운 크리스마스 보내요 !</p>
         </div>
         <div class="display_01">
-            <h3>올해 추천하는 캐롤은 ?</h3>
+            <h3>올해 추천하는 캐롤은 ? <i class="fa-solid fa-snowflake"></i></h3>
             <hr>
             <p>Last Christmas/Wham!(왬) 
                 <br>추천이요 ~!</p>
@@ -483,5 +612,53 @@
         carousel.style.transform = `rotateY(${-angle}deg)`;
         });
     </script>
+
+    <script>
+        window.onload=()=>{
+        document.querySelector('.dropbtn_click').onclick = ()=>{
+            dropdown();
+        }
+        document.getElementsByClassName('christmas').onclick = ()=>{
+            showMenu(value);
+        };
+        dropdown = () => {
+            var v = document.querySelector('.dropdown-content');
+            var dropbtn = document.querySelector('.dropbtn')
+            v.classList.toggle('show');
+            dropbtn.style.borderColor = 'rgb(94, 94, 94)';
+        }
+
+        showMenu=(value)=>{
+            var dropbtn_icon = document.querySelector('.dropbtn_icon');
+            var dropbtn_content = document.querySelector('.dropbtn_content');
+            var dropbtn_click = document.querySelector('.dropbtn_click');
+            var dropbtn = document.querySelector('.dropbtn');
+
+            dropbtn_icon.innerText = '';
+            dropbtn_content.innerText = value;
+            dropbtn_content.style.color = '#252525';
+            dropbtn.style.borderColor = '#3992a8';
+        }
+        }
+        window.onclick= (e)=>{
+        if(!e.target.matches('.dropbtn_click')){
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+
+            var dropbtn_icon = document.querySelector('.dropbtn_icon');
+            var dropbtn_content = document.querySelector('.dropbtn_content');
+            var dropbtn_click = document.querySelector('.dropbtn_click');
+            var dropbtn = document.querySelector('.dropbtn');
+
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+            }
+        }
+        }
+    </script>
+
 </body>
 </html>
