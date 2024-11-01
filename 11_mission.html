@@ -9,17 +9,19 @@
     <h1 style="color: blue;">오늘의 메뉴</h1>
     <input type="button" value="버튼1" onclick="cal()">     <!--1번 방식 사용-->
     <input type="button" value="버튼2">     <!--2번 방식 사용-->
-    <span id="blank" style="width: 150px; height: 20px; border: 1px solid; display: inline-block;">
+    <input type="text" id="blank" style="width: 150px; height: 20px; border: 1px solid; display: inline-block;">
 </body>
 </html>
 <script>
     // 1. html태그에서 함수를 지정하는 방법 12_계산기_tr.html
     // 2. 자바스크립트에서 리스너에 등록하는 방법 ..
+    let word = document.getElementsByTagName('h1')[0]
     let b = document.getElementById('blank')
     function cal () {
+        // alert(b.value)
         let a = document.getElementsByTagName('h1')[0]
-        let c = a.innerText
-        b.innerText = c
+        word.innerText = b.value
+        // a.innerText = c
     }
 
     let d = document.getElementsByTagName('input')[1]

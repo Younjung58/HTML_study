@@ -9,46 +9,62 @@
 <style>
     #abcd {
         width : 600px;
+        background-color: white;
     }
     .swordspan{
         background-color:aqua;
     }
-
+    #hhh {
+        background-color: yellow;
+     }
 </style>
 <script>
     function sfun(){
         var w = document.getElementById("abc").innerHTML;  // 본문을 저장할 변수 선언
         var sw = document.getElementById("sword").value;   // 검색어를 저장할 변수 선언  
-        let a = 0
-        let point = w.indexOf(sw)
-        // alert(point)
-        let find = w.substring(point,sw.length)
-        alert(find)
-        w.indexOf(point).style.color = 'red'
-
-        for(let i=0;i<w.length;i++){
-            // i = a
-            if(w.match(point)){
-                // w.style.color = 'red'
-            }
-            // a = point
-
-
-            // if(w.includes(sw)){
-            //     // alert("있음")
-            //     a++
-            // }else{
-            //     continue
-            // }
-
+        var element = []
+        let find = sw
+        // alert(find)
+        let a = (w.indexOf(find))
+        while(a!=-1){
+            element.push(a);                // 위치를 찾았으면
+            a = w.indexOf(find, a+1)        // 찾은 위치 다음부터 재탐색.. 하다가 존재 안하면 -1이 나옴
         }
-        // alert(point)
+        // let n = element[0]
+        // w.replace(w.charAt(n),'klkj')
+        alert("갯수 : "+element.length)
+        // alert("1번은 "+element[0])
+        // alert("2번은 "+element[1])
+        let dd = document.getElementById("abc")
+        var ss
+        // const back = ss 
+        // let p = document.querySelector('.a')
+        // var style = window.getComputedStyle(p).backgroundColor.value
+        // alert(style)
+        let kkk = w
+        for(var i=0;i < element.length; i++) {
+            for(var j=element[i];j<element[i]+find.length;j++){  
+                // v.style.color = 'yellow'
+                // alert(getstyle('a','backgroundColor').value)
+                ss = kkk.charAt(j)
+                // alert(ss)
+                // let kk = ss.fontcolor("blue")
+                // alert("색변경 : "+kk)
+                w = w.replace(kkk.charAt(j),ss.fontcolor('red'))
+                // const back = document.getElementById("hhh")
+                // back.style.backgroundColor = 'yellow';
+                dd.innerHTML = w
+                // ss = 0
+                // let kk = ss.fontcolor("blue")
+            }
+            // kkk=0
+        }
         
-        // alert(sw)
-
-       
- 
     }
+    function getstyle(id, property){
+        return getComputedStyle(document.getElementById(id))[property]
+    }
+
 </script>
 
 <body>
