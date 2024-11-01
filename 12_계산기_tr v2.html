@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .btn {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 2px solid;
+        margin-top: 5px;
+        text-align: center;
+    }
+    span {
+        display: inline-block;
+        border: 2px solid;
+        width: 170px;
+        height: 50px;
+    }
+</style>
+<body style="padding: 30px;">
+    <h2>계산기</h2>
+    <span id="k"></span><br>
+    <div class="btn" >1</div>
+    <div class="btn" >2</div>
+    <div class="btn" >3</div><br>
+    <div class="btn" >4</div>
+    <div class="btn" >5</div>
+    <div class="btn" >6</div><br>
+    <div class="btn" >7</div>
+    <div class="btn" >8</div>
+    <div class="btn" >9</div><br>
+    <div class="btn" >0</div>
+    <div class="btn" >+</div>
+    <div class="btn" >-</div><br>
+    <div class="btn" style="width: 170px;" >=</div>
+</body>
+</html>
+<script>
+    // 이벤트 처리를 위한 리스너 : 이벤트리스너
+    //  지금 사용해본 것은 : click, change
+    //  마우스 동작은 : mouseup, mousedown
+    //  키보드 동작도 있다..
+    // 리스너를 등록하는 방법은 크게 2가지
+    // 1. html태그에서 함수를 지정하는 방법 12_계산기_tr.html
+    // 2. 자바스크립트에서 리스너에 등록하는 방법 ..
+    
+    // 함수영역이 아닙니다. 문서가 로딩될 때
+    // 여기서 작성하는 코드는 실행이 된다는 의미
+    // 함수로 작성한 코드는 call이 될 때 실행되는 것
+    
+    // () => {}    -> 이것은 람다식의 형태    <람다식 활용>
+    //  -> 함수를 간결하게 표현한 것
+    //  -> 코드를 여러줄 처리하기 위해 함수로 묶어서 정의하는 경우, 코드의 재사용성보다 !간단한 기능 정의에 포커스!
+    
+    // *** 이벤트 등록, 이벤트 처리시 일반적으로 람다식을 많이 사용한다.
+    
+    // 1. 람다식으로 코딩 -> cal을 호출
+    // document.getElementsByClassName("btn")[0].addEventListener('click', () => {cal(1)})  
+    
+    // 2. 람다식으로 코딩 -> click에 대한 정의
+    // document.getElementsByClassName("btn")[0].addEventListener('click', () => {
+    //         alert("tt aaa")
+    //     }
+    // )   
+                    
+    // 3. click에 대한 이벤트를 등록 -> callback함수 사용
+    // document.getElementsByClassName("btn")[0].addEventListener('click', ttt)  
+    // function ttt () {      // ttt는 함수이름(이런 형태는 콜백함수임, 단점 : 성능이 느림)
+    //     alert('aaa')
+    // }
+        
+
+    // 계산기에서 모든 버튼은 이벤트에 등록되어야 한다.
+    // html에서 onclick을 하던, 자바스크립트에서 리스너 등록을 해야한다.
+    // 이번 예제는 자바스크립트에서 리스너를 등록하겠다.
+    var allBtn = document.getElementsByClassName("btn")
+    for(let i = 0; i < allBtn.length; i++){
+        // console.log(allBtn[i])
+        let s = allBtn[i].innerHTML
+        allBtn[i].addEventListener('click',() => {
+                                                    cal(s)
+                                                })
+    }
+
+
+
+
+    function cal (a) {
+        // alert(a)
+        if(a == '=') {
+            let ab = document.getElementById('k')
+            let c = ab.innerText
+            ab.innerText = eval(c)
+        }else {
+            let ab = document.getElementById('k')
+            ab.innerText += a
+            // innerText는 text만 인식, innerHTML은 tag도 인식가능
+        }
+    }
+</script>

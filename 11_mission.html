@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission</title>
+</head>
+<body style="padding: 40px;">
+    <h1 style="color: blue;">오늘의 메뉴</h1>
+    <input type="button" value="버튼1" onclick="cal()">     <!--1번 방식 사용-->
+    <input type="button" value="버튼2">     <!--2번 방식 사용-->
+    <span id="blank" style="width: 150px; height: 20px; border: 1px solid; display: inline-block;">
+</body>
+</html>
+<script>
+    // 1. html태그에서 함수를 지정하는 방법 12_계산기_tr.html
+    // 2. 자바스크립트에서 리스너에 등록하는 방법 ..
+    let b = document.getElementById('blank')
+    function cal () {
+        let a = document.getElementsByTagName('h1')[0]
+        let c = a.innerText
+        b.innerText = c
+    }
+
+    let d = document.getElementsByTagName('input')[1]
+    d.addEventListener('click', () => {
+                           b.innerText = "수고하셨습니다."
+                           alert("수고하셨습니다.")     
+    })
+
+</script>

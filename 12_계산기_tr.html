@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .btn {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 2px solid;
+        margin-top: 5px;
+        text-align: center;
+    }
+    span {
+        display: inline-block;
+        border: 2px solid;
+        width: 170px;
+        height: 50px;
+    }
+</style>
+<body style="padding: 30px;">
+    <h2>계산기</h2>
+    <span id="k"></span><br>
+    <div class="btn" onclick="cal(1)">1</div>
+    <div class="btn" onclick="cal(2)">2</div>
+    <div class="btn" onclick="cal(3)">3</div><br>
+    <div class="btn" onclick="cal(4)">4</div>
+    <div class="btn" onclick="cal(5)">5</div>
+    <div class="btn" onclick="cal(6)">6</div><br>
+    <div class="btn" onclick="cal(7)">7</div>
+    <div class="btn" onclick="cal(8)">8</div>
+    <div class="btn" onclick="cal(9)">9</div><br>
+    <div class="btn" onclick="cal(0)">0</div>
+    <div class="btn" onclick="cal('+')">+</div>
+    <div class="btn" onclick="cal('-')">-</div><br>
+    <div class="btn" style="width: 170px;" onclick="cal('=')">=</div>
+</body>
+</html>
+<script>
+    function cal (a) {
+        // alert(a)
+        if(a == '=') {
+            let ab = document.getElementById('k')
+            let c = ab.innerText
+            ab.innerText = eval(c)
+        }else {
+            let ab = document.getElementById('k')
+            ab.innerText += a
+            // innerText는 text만 인식, innerHTML은 tag도 인식가능
+        }
+    }
+</script>

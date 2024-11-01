@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission_계산기</title>
 </head>
+    <!-- 1. 키를 클릭하면 text수식으로 만들어진다.
+            a. 키를 클릭하면 js를 호출
+            b. 호출된 함수는 키의 값을 가져옴
+            c. 가져온키로 text에 수식을 만듦
+         2. 키 중에 = 를 클릭하면 수식을 계산한다. -->
 <style>
     body {
         width: 900px;
@@ -27,12 +32,13 @@
         position: relative;
         z-index: 5;
     }
+    
     .a , .b, .c, .d , .e {
         display: block;
     }
     .a  input,
     .d  input,
-    .e input {
+    .e input, .d  #zero{
         display: inline-block;
         /* float: left; */
         width: 60px;
@@ -44,17 +50,17 @@
         background-color: rgb(187, 204, 154);
         border-style: outset;
     }
-    .a  input .d:hover,  input:hover, .e input:hover{
+    .a  input .d:hover,  input:hover, .e input:hover, .d  #zero:hover{
         background-color: rgb(109, 124, 77);
     }
-    .d  input, .e  input {
+    .d  #plus,.d  #minus, .e  input {
         background-color: gray;
         border-style: outset;
     }
-    .d > .qq:hover {
+    /* .d  #zero:hover{
         background-color: rgb(109, 124, 77);
-    }
-    .d  input:hover, .e  input:hover{
+    } */
+    .d  #plus:hover,.d  #minus:hover, .e  input:hover{
         background-color: rgb(94, 92, 92);
     }
     .f  input {
@@ -75,37 +81,37 @@
         </div>
         <div class="a">
             <form action="" method="">
-                <input type="button" onclick="num('1')" value="1" id="1">
-                <input type="button" onclick="num ('2')" value="2" id="2">
-                <input type="button" onclick="num ('3')" value="3" id="3">
+                <input type="button" onclick="num('one')" value="1" id="one">
+                <input type="button" onclick="num ('two')" value="2" id="two">
+                <input type="button" onclick="num ('three')" value="3" id="three">
             </form>
         </div>
         <div class="a">
             <form action="" method="">
-                <input type="button" onclick="num ('4')" value="4" id="4">
-                <input type="button" onclick="num ('5')" value="5" id="5">
-                <input type="button" onclick="num ('6')" value="6" id="6">
+                <input type="button" onclick="num ('four')" value="4" id="four">
+                <input type="button" onclick="num ('five')" value="5" id="five">
+                <input type="button" onclick="num ('six')" value="6" id="six">
             </form>
         </div>
         <div class="a">
             <form action="" method="">
-                <input type="button" onclick="num ('7')" value="7" id="7">
-                <input type="button" onclick="num ('8')" value="8" id="8">
-                <input type="button" onclick="num ('9')" value="9" id="9">
+                <input type="button" onclick="num ('seven')" value="7" id="seven">
+                <input type="button" onclick="num ('eight')" value="8" id="eight">
+                <input type="button" onclick="num ('nine')" value="9" id="nine">
             </form>
         </div>
         <div class="d">
             <form action="" method="">
-                <input type="button" onclick="calculating ('+')" value="+" id="+">
-                <input type="button" onclick="num ('0')" value="0" id="0" style="background-color: rgb(187, 204, 154);">
-                <input type="button" onclick="calculating ('-')" value="-" id="-">
+                <input type="button" onclick="calculating ('plus')" value="+" id="plus">
+                <input type="button" onclick="num ('zero')" value="0" id="zero">
+                <input type="button" onclick="calculating ('minus')" value="-" id="minus">
                 <!-- <input type="button" onclick="calculating ('*')" value="*" id="*"> -->
             </form>
         </div>
         <div class="e">
             <input type="button" onclick="calculating ('*')" value="*" id="*">
             <input type="button" onclick="calculating ('/')" value="/" id="/">
-            <input type="button" onclick="total ()" value="=" id="=" style="background-color: rgb(184, 102, 72);">
+            <input type="button" onclick="total ()" value="=" id="total" style="background-color: rgb(184, 102, 72);">
         </div>
         <div class="f">
             <input type="button" onclick="reset ()" value="RESET" id="reset">

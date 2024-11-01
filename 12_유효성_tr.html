@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유효성</title>
+</head>
+<body>
+    <div style="margin-left: 20px;">
+        <form action="">
+            <span>ID</span><br><input type="text" id="id"><br>      <!--js에서 element를 id로 가져올 예정 -> id지정-->
+            <span>PWD</span><br><input type="text" id="pwd"><br>   <!--js에서 element를 id로 가져올 예정 -> id지정-->
+            <br><input type="button" value="전송" onclick="test()">   
+                    <!--버튼을 눌렀을 때 유효성을 체크하기 위해서 js를 사용할 예정-->
+        </form>
+    </div>
+</body>
+<script>
+    function test () {
+        let id = document.getElementById('id').value;         // id는 object 하나로 가져옴
+        let pwd = document.getElementById('pwd').value;        
+                    // input 거의 value로 가져옴, 그외 innerHTML 또는 innerText
+        // alert(id+" / "+pwd)    단위 테스트 꼭 하기 !
+        // console.log(id.length)   단위 테스트 꼭 하기 !
+        if(id.length < 8){
+            alert("ID는 8글자 이상이여야 합니다.")
+            return      // ID와 PWD의 길이가 조건에 안맞을시 경고창 한번만 띄우기 위하여 return
+                        // (retun type안적어줘도 됨)
+        }
+        if(pwd.length < 4){
+            alert("PWD는 4글자 이상이여야 합니다.")
+        }
+        // js에서 유효성을 검사해서 처리해주면, 해당 정보를 스프링으로 보내기전,
+        // (클라이언트 입장에서) 모든 검사를 끝내기 때문에 서버입장에서 부담이 적어짐
+    }
+</script>
+</html>
