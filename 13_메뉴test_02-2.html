@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
@@ -26,6 +26,7 @@
         /* margin-right: 15px; */
         font-size: large;
         /* color: blue; */
+        text-align: center;
     }
 </style>
 <body>
@@ -39,14 +40,36 @@
         <table id="orderList" style="margin: 10px;">
             <tr>
                 <th>선택</th><th>메뉴</th><th>수량</th>
-                <th><span style="margin: 10px;"></span></th>
-                <th><input type="button" value="삭제"></th>
             </tr>
         </table>
+        <button id="deleteBtn" style="margin-left: 15px; margin-top: 5px;">선택삭제</button>
     </div>
     <hr>
 </body>
 <script>
+    document.getElementById("deleteBtn").addEventListener('click',()=>{
+        // onclick으로 메소드를 따로 정의하면 코드를 위아래 두번 써줘야하기도 하고,
+        // 나중에 메소드명만 보고 무엇을 위하여 그 메소드를 정의한것인지 정확히 파악하기 힘들어질 수 있음
+        // element를 지정하여 바로 addEventListener로 처리, 처리는 람다식으로 코드 정의 <- 따라서 이방법 많이사용
+        // alert("삭제합니다.")
+        // alert(orderList.rows.length);
+        for(let i=1;i<orderList.rows.length;i++){
+            // console.log(orderList.rows[i].cells[0].children[0].checked);
+            if(orderList.rows[i].cells[0].children[0].checked){
+                orderList.deleteRow(i)
+                i--     // 하나가 삭제된다면 길이가 줄고 인덱스 번호도 하나씩 줄어들기 때문에 1을 줄여줌
+            }
+        }
+    });
+
+
+    // // jquery 설치는 cdn방식으로
+    // $('#deleteBtn').on('click',()=>{
+    //     $('#info').val();
+    // })      // jquery 작성 방식
+
+
+
     var menu = ['자장면','볶음밥','탕수육']
     menu.push('군만두')        // 배열에 추가하는 메서드 push(자바스크립트의 배열은 가변길이)
     var pan = document.getElementById('info')
