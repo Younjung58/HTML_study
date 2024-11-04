@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴선택</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
@@ -16,43 +24,33 @@
 </body>
 <script>
     var menu = ['자장면','볶음밥','탕수육']
+    menu.push('군만두')        // 배열에 추가하는 메서드 push(자바스크립트의 배열은 가변길이)
+    var pan = document.getElementById('info')
+    // alert(menu[0])
+    var menu_list = '';
+    /* for(let i=0;i<menu.length;i++){
+        menu_list += (menu[i]+" ")
+    } */
+    for(m of menu){
+        menu_list += (m+" ")
+    }
+    // alert(menu_list)
+    pan.innerHTML = menu_list
 
-    let info = document.getElementById('info')
-    let a
-
-    window.onload = () => {
-        a = menu.splice(',')
-        // alert(a.length)
-        for(var i=0;i<a.length;i++){
-            info.innerHTML += a[i]
-            if(i!=a.length-1){
-                info.innerHTML +=" / "
+    function order (){
+        let input = document.getElementById("inputMenu").value
+        for(m of menu){
+            if(input == m){
+                let kk = confirm("주문할까요?")
+                alert(kk)      // confirm 메소드의 리턴값을 확인해보기 위하여 진행
+                return    // return을 만난다면 해당 메서드가 바로 종료되어 아래 메뉴가 없습니다라는 경고창 출력안됨
             }
         }
+        alert("해당 메뉴가 없습니다.")
+
     }
 
-    function order() {
-        let food = document.getElementsByTagName('input')[0]
-        let sel = food.value
-        let ans
-        let confirm = true
-        // alert(sel)
-        for(var i=0;i<a.length;i++){
-            if(sel==a[i]){
-                ans = window.confirm("있는메뉴 입니다.")
-                if(ans){
-                    // console.log("확인이눌림")
-                    var result = document.getElementById('order_info')
-                    result.innerHTML = a[i].fontcolor('blue')
-                }
-                confirm = false
-                return
-            }
-        }    
-        if(confirm){
-            alert("해당 메뉴는 존재하지 않습니다.")
-        }
-    }
+
     // node.js로 실행하지 말고, 웹브라우저로 실행하여서 해결하시오.
 
     // 05answer01.html    
@@ -71,4 +69,6 @@
     // 5. 삭제 버튼을 누르면 주문 삭제가 가능하다.
     
 </script>
+</html>
+</body>
 </html>

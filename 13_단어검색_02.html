@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단어검색</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #abcd {
+        width : 600px;
+    }
+    .swordspan{
+        background-color:aqua;
+    }
+    .aa {
+        background-color: yellow;
+    }
+</style>
+<script>
+    function sfun(){
+        var w = document.getElementById("abc").innerHTML;  // 본문을 저장할 변수 선언
+        var sw = document.getElementById("sword").value;   // 검색어를 저장할 변수 선언  
+        // alert(w)    // 중간 단위테스트의 성격
+        // alert(typeof(w))
+        // alert(sw)   // 이런걸하면 아이디어가 나올 수 있음
+        // alert(typeof(sw))   // 문자열임을 확인. sw문자열이 w에 몇번째에 있는지 확인하자
+        // 자바스크립트의 문자열 함수를 찾아 봅니다.
+        // alert(w.indexOf(sw));
+        // alert(w.indexOf(sw,20))      // 검색 시작 위치를 지정할 수 있음 (20의 위치부터 찾아라.)
+         
+        // indexOf : 메서드명, 기능, 리턴값이 무엇인지?
+        //           매개변수의 문자열이 시작되는 위치, 리턴값은 숫자
+        w = w.replaceAll("<span class=\"aa\">","")
+        w = w.replaceAll("</span>","")
+        // alert(w)
+        w = w.replaceAll(sw,"<span class=\"aa\">"+sw+"</span>");
+        // 큰따옴표(")를 문자의 형식으로 넣기위해서는 역슬래시(\)하고 " 사용
+        document.getElementById("abc").innerHTML = w;
+
+/*        var cnt = 0;
+        for(let i=0; i<w.length; i++){
+            var kk = w.indexOf(sw,i)
+            if(kk != -1){
+                cnt++;
+                i = kk; 
+                //kk값이 -1이 아니라면 위치값 다음부터 검색하면 되니까 i값을 변경해 줌
+            }
+        }
+        alert(cnt+"개 있다궁") */
+    } 
+</script>
+
+<body>
+    <div id="abcd">
+        <span id="abc">
+        주말 이틀 연속 코로나19 하루 신규 확진자가 10만명대를 
+        기록하는 등 유행 규모가 감소세를 이어갔다. 
+        정부가 방역·의료체계의 일상회복을 
+        목표로 한 ‘포스트 오미크론 대응체계’를 준비하는 가운데 
+        11일부터는 보건소 선별진료소와 임시선별진료소에서 코로나19 신속항원검사가 중단된다.
+        </span>
+        <br>
+        찾을 문자열 <input type="text" id="sword"> 
+        <input type="button" onclick="sfun()" value="검색">
+        </span>
+    </div>   
+</html>
+
+<!-- 
+
+과제1 : 검색어가 모두 몇개인지 카운팅하시오
+과제2 : 검색어는 배경을 노락색으로 색칠하세요.
+
+
+-->
+</body>
+</html>
