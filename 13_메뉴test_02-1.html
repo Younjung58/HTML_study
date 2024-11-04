@@ -14,6 +14,15 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #order_info > span{
+        color: blue;
+        font-size: large;
+        font-weight: bold;
+        margin-left: 10px;
+        /* font-style: oblique; */
+    }
+</style>
 <body>
     <h1> 주문메뉴 </h1>
     <div id="info"></div>
@@ -39,11 +48,17 @@
 
     function order (){
         let input = document.getElementById("inputMenu").value
+        let viewpan = document.getElementById('order_info')
         for(m of menu){
             if(input == m){
-                let kk = confirm("주문할까요?")
-                alert(kk)      // confirm 메소드의 리턴값을 확인해보기 위하여 진행
-                return    // return을 만난다면 해당 메서드가 바로 종료되어 아래 메뉴가 없습니다라는 경고창 출력안됨
+                // let kk = confirm("주문할까요?")
+                // alert(kk)      // confirm 메소드의 리턴값을 확인해보기 위하여 진행 -> true / false 확인
+                if(confirm("주문할까요?")){
+                    viewpan.innerHTML += "<span>"+input+"</span><br>"
+                }else{
+                    alert("주문을 취소합니다.")
+                }
+                return;    // return을 만난다면 해당 메서드가 바로 종료되어 아래 메뉴가 없습니다라는 경고창 출력안됨
             }
         }
         alert("해당 메뉴가 없습니다.")
@@ -59,14 +74,6 @@
     //    아니면 메뉴가 없습니다는 경고창을 띄운다.
     // 3. 메뉴가 존재하면 confirm() 창을 띄우고 확인을 누르면 
     //     주문정보에 파란색의 글씨로 선태한 메뉴를 출력한다.
-
-    // 05answer02.html
-    // 1. 위 1번과 2번 동일하다.
-    // 2. 메뉴선택 옆에 수량을 입력하도록 html을 수정 한다.
-    // 3. 주문을 입력하여 메뉴가 존재하면 confirm()을 띄우고, 이때 메뉴와 수량이
-    //    확인되어야 한다. 
-    // 4. 주문정보에 체크박스, 메뉴명, 수량, 삭제버튼이 나오게 한다.
-    // 5. 삭제 버튼을 누르면 주문 삭제가 가능하다.
     
 </script>
 </html>

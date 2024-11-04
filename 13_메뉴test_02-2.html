@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴선택</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #order_info > span{
+        color: blue;
+        font-size: large;
+        font-weight: bold;
+        margin-left: 10px;
+        /* font-style: oblique; */
+    }
+    #orderList tr{
+        /* margin-right: 15px; */
+        font-size: large;
+        /* color: blue; */
+    }
+</style>
+<body>
+    <h1> 주문메뉴 </h1>
+    <div id="info"></div>
+    메뉴선택 <input type="text" id="inputMenu">
+    / 수량 <input type="text" id="inputQuantity" style="width: 50px;"> 개    
+    <input type="button" onclick="order()" value="주문">    
+    <br>주문정보 
+    <div id="order_info">
+        <table id="orderList" style="margin: 10px;">
+            <tr>
+                <th>선택</th><th>메뉴</th><th>수량</th>
+                <th><span style="margin: 10px;"></span></th>
+                <th><input type="button" value="삭제"></th>
+            </tr>
+        </table>
+    </div>
+    <hr>
+</body>
+<script>
+    var menu = ['자장면','볶음밥','탕수육']
+    menu.push('군만두')        // 배열에 추가하는 메서드 push(자바스크립트의 배열은 가변길이)
+    var pan = document.getElementById('info')
+    // alert(menu[0])
+    var menu_list = '';
+    /* for(let i=0;i<menu.length;i++){
+        menu_list += (menu[i]+" ")
+    } */
+    for(m of menu){
+        menu_list += (m+" ")
+    }
+    // alert(menu_list)
+    pan.innerHTML = menu_list
+
+    function order (){
+        let input = document.getElementById("inputMenu").value
+        let viewpan = document.getElementById('order_info')
+        let quantity = document.getElementById('inputQuantity').value;
+        for(m of menu){
+            if(input == m){
+                // let kk = confirm("주문할까요?")
+                // alert(kk)      // confirm 메소드의 리턴값을 확인해보기 위하여 진행 -> true / false 확인
+                if(confirm("주문할까요? / "+quantity+"개")){
+                    // 테이블을 미리 만들어놓고 orderList 테이블 객체에 row를 추가한다.
+                    // table row를 추가한다.
+                    let newOrder = orderList.insertRow();   // row만들기
+                    let cell1 = newOrder.insertCell(0);     // 컬럼 만들기
+                    let cell2 = newOrder.insertCell(1);     // 컬럼 만들기
+                    let cell3 = newOrder.insertCell(2);     // 컬럼 만들기
+                    cell1.innerHTML = "<input type = \"checkbox\">"
+                    cell2.innerHTML =input
+                    cell3.innerHTML = quantity+"개"
+                }else{
+                    alert("주문을 취소합니다.")
+                }
+                return;    // return을 만난다면 해당 메서드가 바로 종료되어 아래 메뉴가 없습니다라는 경고창 출력안됨
+            }
+        }
+        alert("해당 메뉴가 없습니다.")
+
+    }
+
+
+    // 05answer02.html
+    // 1. 위 1번과 2번 동일하다.
+    // 2. 메뉴선택 옆에 수량을 입력하도록 html을 수정 한다.
+    // 3. 주문을 입력하여 메뉴가 존재하면 confirm()을 띄우고, 이때 메뉴와 수량이
+    //    확인되어야 한다. 
+    // 4. 주문정보에 체크박스, 메뉴명, 수량, 삭제버튼이 나오게 한다.
+    // 5. 삭제 버튼을 누르면 주문 삭제가 가능하다.
+    
+</script>
+</html>
+</body>
+</html>
