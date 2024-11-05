@@ -320,32 +320,7 @@
         }
     });
 
-    // document.getElementById('likeBtn').addEventListener('click',()=>{
-    //     if(confirm("해당내역을 장바구니로 담을까요?")){
-    //         for(let i=0;i<orderList.rows.length;i++){
-    //             if(orderList.rows[i].cells[0].children[0].checked){
-    //                 let newOrder = likeList.insertRow();   // row만들기
-    //                 let cell1 = newOrder.insertCell(0);     // 컬럼 만들기
-    //                 let cell2 = newOrder.insertCell(1);     // 컬럼 만들기
-    //                 let cell3 = newOrder.insertCell(2);     // 컬럼 만들기
-    //                 let cell4 = newOrder.insertCell(3);     // 컬럼 만들기
-    //                 cell1.innerHTML = orderList.rows[i].cells[1].innerHTML
-    //                 cell2.innerHTML = orderList.rows[i].cells[2].innerHTML
-    //                 cell3.innerHTML = orderList.rows[i].cells[3].innerHTML
-    //                 cell4.innerHTML = orderList.rows[i].cells[4].innerHTML
-                    
-    //             }
-    //         }
-    //         delRow()
-    //         alert("장바구니로 이동을 완료하였습니다~!")
-    //     }else{
-    //         alert("장바구니 담기를 취소하였습니다.")
-    //         for(let i=0;i<orderList.rows.length;i++){
-    //               orderList.rows[i].cells[0].children[0].checked = false
-    //         }
-    //     }
-    // })
-
+   
     $('#likeBtn').on('click', ()=>{
       if(confirm("해당 내역을 장바구니로 담을까요?")){
         for(let i=0;i<orderList.rows.length;i++){
