@@ -349,7 +349,7 @@
     $('#likeBtn').on('click', ()=>{
       if(confirm("해당 내역을 장바구니로 담을까요?")){
         for(let i=0;i<orderList.rows.length;i++){
-                if(orderList.rows[i].cells[0].children[0].checked){
+                if((orderList.rows[i].cells[0].children[0]).prop("checked")){
                     let newOrder = likeList.insertRow();   // row만들기
                     let cell1 = newOrder.insertCell(0);     // 컬럼 만들기
                     let cell2 = newOrder.insertCell(1);     // 컬럼 만들기
@@ -382,7 +382,7 @@
     $('#allChk').on('click',()=>{
         for(let i=0;i<orderList.rows.length;i++){
                 orderList.rows[i].cells[0].children[0].checked 
-                    = $('#allChk').css("checked")
+                    = $('#allChk').is(":checked")
             }
     })
     
